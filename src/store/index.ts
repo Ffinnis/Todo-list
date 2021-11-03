@@ -25,8 +25,8 @@ export default new Vuex.Store({
     },
     setTodoGroupList(
       state: any,
-      list: Array<TodoInterface>
-    ): Array<TodoInterface> {
+      list: Array<GroupInterface>
+    ): Array<GroupInterface> {
       return (state.todoGroupList = list);
     },
   },
@@ -43,8 +43,22 @@ export default new Vuex.Store({
     setTodoList(context, list: Array<TodoInterface>): void {
       return context.commit("setTodoList", list);
     },
-    setTodoGroupList(context, list: Array<TodoInterface>): void {
+    setTodoGroupList(context, list: Array<GroupInterface>): void {
       return context.commit("setTodoGroupList", list);
+    },
+  },
+  getters: {
+    todoListByGroup: (state) => {
+      return state.todoList.filter((el: { group: GroupInterface }) => {
+        return Object.keys(el.group).length !== 0;
+      });
+    },
+    togoListWithoutGroup: (state) => {
+      if (state.todoList) {
+        return state.todoList.filter((el: { group: GroupInterface }) => {
+          return Object.keys(el.group).length === 0;
+        });
+      }
     },
   },
   modules: {},

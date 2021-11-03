@@ -8,7 +8,10 @@
     <b-popover target="group-item" triggers="hover" placement="top">
       Нажми, чтобы установить группу
     </b-popover>
-    <div v-if="todoGroupList.length > 0" class="d-block text-center">
+    <div
+      v-if="todoGroupList && todoGroupList.length > 0"
+      class="d-block text-center"
+    >
       <p>Действующие группы задач</p>
       <b-list-group class="d-block mb-5">
         <b-list-group-item

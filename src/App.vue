@@ -16,11 +16,18 @@ import store from "./store/index";
 export default Vue.extend({
   name: "App",
   created(): void {
-    store.dispatch("setTodoList", JSON.parse(localStorage.getItem("todoList")));
-    store.dispatch(
-      "setTodoGroupList",
-      JSON.parse(localStorage.getItem("todoGroupList"))
-    );
+    if (localStorage.getItem("todoList")) {
+      store.dispatch(
+        "setTodoList",
+        JSON.parse(localStorage.getItem("todoList"))
+      );
+    }
+    if (localStorage.getItem("todoGroupList")) {
+      store.dispatch(
+        "setTodoGroupList",
+        JSON.parse(localStorage.getItem("todoGroupList"))
+      );
+    }
   },
 });
 </script>
