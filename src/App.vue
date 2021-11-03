@@ -10,6 +10,20 @@
   </div>
 </template>
 
+<script lang="ts">
+import Vue from "vue";
+import store from "./store/index";
+export default Vue.extend({
+  name: "App",
+  created(): void {
+    store.dispatch("setTodoList", JSON.parse(localStorage.getItem("todoList")));
+    store.dispatch(
+      "setTodoGroupList",
+      JSON.parse(localStorage.getItem("todoGroupList"))
+    );
+  },
+});
+</script>
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

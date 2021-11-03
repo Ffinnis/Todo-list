@@ -117,6 +117,14 @@ export default Vue.extend({
       };
 
       this.$store.dispatch("addTodoToList", todo);
+      localStorage.setItem(
+        "todoList",
+        JSON.stringify(this.$store.state.todoList)
+      );
+      localStorage.setItem(
+        "todoGroupList",
+        JSON.stringify(this.$store.state.todoGroupList)
+      );
       if (this.$refs["success_modal"]) {
         this.$refs["success_modal"].show();
       }

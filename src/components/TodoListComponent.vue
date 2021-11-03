@@ -9,21 +9,22 @@
       :style="'border: 2px solid' + todo.color"
       :disabled="todo.completed"
     >
-      <div class="col item-title">
-        <b-popover
-          triggers="hover"
-          placement="top"
-          :target="todo.group.id + todo.group.title"
-        >
-          Группа под названием: {{ todo.group.title }}
-        </b-popover>
-        <b-icon
-          icon="circle-fill"
-          color="transparent"
-          :style="'color:' + todo.group.color"
-          class="mr-2"
-          :id="todo.group.id + todo.group.title"
-        />
+      <div class="col item-title row justify-content-center">
+        <div v-if="Object.keys(todo.group) != 0" class="">
+          <b-popover
+            triggers="hover"
+            placement="top"
+            :target="todo.group.id + todo.group.title"
+          >
+            Группа под названием: {{ todo.group.title }}
+          </b-popover>
+          <b-icon
+            icon="circle-fill"
+            :style="'color:' + todo.group.color"
+            class="mr-2"
+            :id="todo.group.id + todo.group.title"
+          />
+        </div>
         {{ todo.title }}
       </div>
       <div class="col item-description">

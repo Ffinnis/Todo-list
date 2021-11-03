@@ -20,6 +20,15 @@ export default new Vuex.Store({
     addGroup(state: any, group: GroupInterface): void {
       return state.todoGroupList.push(group);
     },
+    setTodoList(state: any, list: Array<TodoInterface>): Array<TodoInterface> {
+      return (state.todoList = list);
+    },
+    setTodoGroupList(
+      state: any,
+      list: Array<TodoInterface>
+    ): Array<TodoInterface> {
+      return (state.todoGroupList = list);
+    },
   },
   actions: {
     addTodoToList(context, todo: TodoInterface): void {
@@ -30,6 +39,12 @@ export default new Vuex.Store({
     },
     addGroup(context, group: GroupInterface): void {
       return context.commit("addGroup", group);
+    },
+    setTodoList(context, list: Array<TodoInterface>): void {
+      return context.commit("setTodoList", list);
+    },
+    setTodoGroupList(context, list: Array<TodoInterface>): void {
+      return context.commit("setTodoGroupList", list);
     },
   },
   modules: {},

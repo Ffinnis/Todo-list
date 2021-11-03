@@ -13,7 +13,7 @@
       <b-list-group class="d-block mb-5">
         <b-list-group-item
           id="group-item"
-          class="group-item"
+          class="group-item mt-3"
           v-for="group in todoGroupList"
           :key="group.id + group.title"
           :style="'border: 2px solid' + group.color"
