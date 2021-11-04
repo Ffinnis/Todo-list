@@ -15,10 +15,4 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Чтобы создать todo-шку нужно перейти на страницу создания, заполнить input, при необходимости добавить группу
