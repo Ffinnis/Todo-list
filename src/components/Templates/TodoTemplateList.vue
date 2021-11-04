@@ -59,8 +59,12 @@ const Props = Vue.extend({
 @Component
 export default class TodoTemplateList extends Props {
   listFromProps = this.list;
-  completeTodo(id: number): Promise<void> {
-    return store.dispatch("completeTodo", id);
+  completeTodo(id: number): void {
+    store.dispatch("completeTodo", id);
+    return localStorage.setItem(
+      "todoList",
+      JSON.stringify(store.state.todoList)
+    );
   }
 }
 </script>

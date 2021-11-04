@@ -7,6 +7,7 @@
     >
       <b-button
         v-b-toggle="group.id + group.title.replace(/\s/g, '')"
+        style="width: 100%"
         :style="'background:' + group.color"
         >{{ group.title }}</b-button
       >
